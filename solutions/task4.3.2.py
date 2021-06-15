@@ -1,6 +1,6 @@
 n = int(input())
 points = []
-ans = []
+ans = 0
 k = 0
 
 for _ in range(n):
@@ -9,10 +9,7 @@ for _ in range(n):
 points.sort()
 
 for _, edge in points:
-    if edge:
-        k -= 1
-    else:
-        k += 1
-    ans.append(k)
+    k -= 1 if edge else -1
+    ans = k if k > ans else ans
 
-print(max(ans))
+print(ans)
